@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Add Task</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="RegistrationForm">
+    <div class="form-group">
+      <mat-form-field class="input-field" appearance="fill">
+        <mat-label>Enter id</mat-label>
+        <input matInput formControlName="id" required>
+        <mat-error *ngIf="RegistrationForm.get('id').invalid">Id field cannot be blank</mat-error>
+      </mat-form-field>  <br>   
+      
+      <mat-form-field class="input-field" appearance="fill">
+        <mat-label>Enter User Name</mat-label>
+        <input matInput formControlName="userName" required>
+        <mat-error *ngIf="RegistrationForm.get('userName').invalid">Product Name field cannot be blank</mat-error>
+      </mat-form-field> <br> 
+
+      <mat-form-field class="input-field" appearance="fill">
+        <mat-label>Enter Email</mat-label>
+        <input matInput formControlName="email" type="email" required>
+        <mat-error *ngIf="RegistrationForm.get('email').invalid">Email field cannot be blank</mat-error>
+      </mat-form-field> <br>
+
+      <mat-form-field class="input-field" appearance="fill">
+        <mat-label>Enter Password</mat-label>
+        <input matInput formControlName="password" type="password" required>
+        <mat-error *ngIf="RegistrationForm.get('password').invalid">Password field cannot be blank</mat-error>
+      </mat-form-field> <br> 
+    </div>    
+    <button mat-raised-button color="primary" [disabled]="RegistrationForm.invalid" mat-dialog-close (click)="registerUser(RegistrationForm.value)">Add User</button>
+    <button mat-raised-button color="accent" (click)="clearForm()" style="margin-left: 1%;">Clear</button>
+  </form>
+</mat-dialog-content>
+

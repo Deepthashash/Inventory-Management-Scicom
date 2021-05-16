@@ -39,12 +39,12 @@ public class ProductController {
     	return productService.addProduct(newProduct);
     }
     
-    @DeleteMapping(path="/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(path="/{id}",produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public Product updateProduct(@PathVariable int id, @RequestBody Product updatedProduct) {
         return productService.updateProduct(id,updatedProduct);
     }
     
-    @PutMapping(path="/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    @DeleteMapping(path="/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
     public Product removeProduct(@PathVariable int id) {
         return productService.removeProduct(id);
     }

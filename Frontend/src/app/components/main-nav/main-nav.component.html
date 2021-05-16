@@ -1,0 +1,31 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item (click)="switch(1)">Dashboard</a>
+      <a mat-list-item (click)="switch(2)">Products</a>
+      <a mat-list-item (click)="switch(3)">Users</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Inventory Manager</span>
+      <span class="example-spacer"></span>
+      <button style="margin-left: 2%; height: fit-content;" color="warn" (click)="logout()" mat-raised-button>Logout</button>
+    </mat-toolbar>
+    <app-home *ngIf="component == 1"></app-home>
+    <app-product-list *ngIf="component == 2"></app-product-list>
+    <app-users *ngIf="component == 3"></app-users>
+  </mat-sidenav-content>
+</mat-sidenav-container>

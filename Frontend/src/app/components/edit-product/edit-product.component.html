@@ -1,0 +1,56 @@
+<h2 mat-dialog-title>Edit Task</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="ProductAddForm">
+    <div class="form-group">
+      <mat-form-field class="input-field" appearance="fill">
+        <mat-label>Enter id</mat-label>
+        <input matInput formControlName="id" required>
+        <mat-error *ngIf="ProductAddForm.get('id').invalid">Id field cannot be blank</mat-error>
+      </mat-form-field>  <br>   
+      
+      <mat-form-field class="input-field" appearance="fill">
+        <mat-label>Enter Product Name</mat-label>
+        <input matInput formControlName="productName" required>
+        <mat-error *ngIf="ProductAddForm.get('productName').invalid">Product Name field cannot be blank</mat-error>
+      </mat-form-field> <br> 
+
+      <mat-form-field class="input-field" appearance="fill">
+        <mat-label>Select Product Type</mat-label>
+        <mat-select formControlName="type">
+          <mat-option *ngFor="let type of types" [value]="type">
+            {{type}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="ProductAddForm.get('type').invalid">Product Type cannot be blank</mat-error>
+      </mat-form-field> <br>
+
+      <mat-form-field class="input-field" appearance="fill">
+        <mat-label>Enter Description</mat-label>
+        <input matInput formControlName="description" required>
+        <mat-error *ngIf="ProductAddForm.get('description').invalid">Price field cannot be blank</mat-error>
+      </mat-form-field> <br>
+
+      <mat-form-field class="input-field" appearance="fill">
+        <mat-label>Enter Price</mat-label>
+        <input matInput formControlName="price" type="number" required>
+        <mat-error *ngIf="ProductAddForm.get('price').invalid">Price field cannot be blank</mat-error>
+      </mat-form-field> <br> 
+
+      <mat-form-field class="input-field" appearance="fill">
+        <mat-label>Enter Quantity</mat-label>
+        <input matInput formControlName="quantity" type="number" required>
+        <mat-error *ngIf="ProductAddForm.get('quantity').invalid">Quantity field cannot be blank</mat-error>
+      </mat-form-field> <br> 
+
+      <mat-form-field class="input-field" appearance="fill">
+        <mat-label>Enter Re-order Level</mat-label>
+        <input matInput formControlName="reOrderLevel" type="number" required>
+        <mat-error *ngIf="ProductAddForm.get('reOrderLevel').invalid">Re-order Level field cannot be blank</mat-error>
+      </mat-form-field> <br> 
+    </div>    
+    <button mat-raised-button color="primary" [disabled]="ProductAddForm.invalid" mat-dialog-close (click)="updateProduct(ProductAddForm.value)">Apply Changes</button>
+    <button mat-raised-button color="accent" mat-dialog-close style="margin-left: 1%;">Close</button>
+  </form>
+</mat-dialog-content>
+

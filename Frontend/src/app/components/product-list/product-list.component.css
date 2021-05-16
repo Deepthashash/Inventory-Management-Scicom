@@ -1,0 +1,24 @@
+table {
+   width: 90%;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 2%;
+}
+
+.card{  
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2%;
+  display: flex;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.input-container{
+  border: 1px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

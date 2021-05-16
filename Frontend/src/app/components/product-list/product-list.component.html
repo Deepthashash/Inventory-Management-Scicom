@@ -1,0 +1,71 @@
+<mat-card class="card">
+    <h1 style="font-weight: 500;">Products</h1>
+    <span class="example-spacer"></span>
+      <mat-form-field>
+        <input matInput [formControl]="name" type="text">
+      </mat-form-field> 
+      <button style="margin-left: 2%; height: fit-content; background-color: rgb(39, 192, 39);" (click)="search(name.value)" mat-raised-button>Search</button> 
+    <button style="margin-left: 2%; height: fit-content;" color="primary" (click)="onAdd()" mat-raised-button>Add Product</button>
+</mat-card>
+<table mat-table matSort [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="productName">
+        <th mat-header-cell *matHeaderCellDef> Product Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef> Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
+        <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
+        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="reOrderLevel">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Re-order Level </th>
+        <td mat-cell *matCellDef="let element"> {{element.reOrderLevel}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="action" style="padding-left: auto; padding-right: auto;">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element">
+              <button mat-raised-button color="accent" (click)="onEdit(element.id)">
+                  <mat-icon>edit</mat-icon>
+              </button> 
+              <button mat-raised-button style="margin-left: 2%;" color="warn" (click)="onDelete(element.id)">
+                   <mat-icon>delete</mat-icon>
+               </button> 
+          </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <div *ngIf="isLoading" 
+      style="display: flex; justify-content: center; align-items: center; background: white;">
+      <mat-progress-spinner 
+          color="primary" 
+          mode="indeterminate">
+      </mat-progress-spinner>
+  </div>
+    
+    

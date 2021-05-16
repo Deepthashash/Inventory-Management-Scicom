@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.mvc.annotation.ResponseStatusExceptionResolver;
 
+import com.deeptha.model.Product;
 import com.deeptha.model.User;
 import com.deeptha.service.UserService;
 
@@ -22,6 +23,11 @@ public class UserServiceImplementation implements UserService{
 	     User user2 = new User(2, "nimal", "nimal@gmail.com", "123456");
 	     users.add(user1);
 	     users.add(user2);
+	}
+	
+	@Override
+	public List<User> allUsers() {
+		return users;
 	}
 
 	@Override

@@ -6,14 +6,17 @@ public class Product {
 	private String description;
 	private String type;
 	private int price;
+	private int quantity;
+	private int reOrderLevel;
 	
-	public Product(int id, String productName, String description, String type, int price) {
-		super();
+	public Product(int id, String productName, String description, String type, int price, int quantity,int reOrderLevel) {
 		this.id = id;
 		this.productName = productName;
 		this.description = description;
 		this.type = type;
 		this.price = price;
+		this.quantity = quantity;
+		this.reOrderLevel = reOrderLevel;
 	}
 	
 	public Product() {
@@ -49,6 +52,22 @@ public class Product {
 	}
 	public void setPrice(int price) {
 		this.price = price;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public int getReOrderLevel() {
+		return reOrderLevel;
+	}
+
+	public void setReOrderLevel(int reOrderLevel) {
+		this.reOrderLevel = reOrderLevel;
 	}	
-	
+		
 }

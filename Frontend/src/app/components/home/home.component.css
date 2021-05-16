@@ -1,0 +1,52 @@
+#chart{
+  display: block;
+  width: 60%;
+  margin-left: 15%;
+  margin: auto;
+}
+
+.main-container{
+  display: flex;
+}
+
+.sub-container-left{
+  width: 40%;
+}
+
+.sub-container-right{
+  width: 60%;
+  display: grid;
+}
+
+.sub-container-up{
+  height: 50vh;
+}
+.sub-container-down{
+  display: flex;
+  margin-top: 12%;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
+.details-card {
+  width: 10vw;
+  height: 18vh;
+}
+
+.alert-card {
+  height: 80vh;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2vh;
+}
+
+.low-stock-card{
+  margin: 5%;
+  display: flex;
+  background-color: rgb(233, 233, 53);
+}
+
+.card-inner{
+  width: 30%;
+}
