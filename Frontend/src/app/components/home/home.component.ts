@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
           this.labels.push(res.productName);
           this.quantities.push(res.quantity);
         });
-        this.createPieChart(); 
+        this.createPieChart();
       }
     )
   }

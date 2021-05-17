@@ -33,8 +33,10 @@ export class ProductListComponent implements OnInit {
         this.products = result;
         console.log(this.products);
         this.dataSource = this.products;
+      },
+      (err) => {
+        this.isLoading = false;
       }
-
     );
   } 
 

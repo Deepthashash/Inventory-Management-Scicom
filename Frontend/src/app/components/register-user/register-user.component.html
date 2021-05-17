@@ -18,13 +18,15 @@
       <mat-form-field class="input-field" appearance="fill">
         <mat-label>Enter Email</mat-label>
         <input matInput formControlName="email" type="email" required>
-        <mat-error *ngIf="RegistrationForm.get('email').invalid">Email field cannot be blank</mat-error>
+        <mat-error *ngIf="RegistrationForm.get('email').errors?.required">Email field cannot be blank</mat-error>
+        <mat-error *ngIf="RegistrationForm.get('email').errors?.email">Email is badly formated</mat-error>
       </mat-form-field> <br>
 
       <mat-form-field class="input-field" appearance="fill">
         <mat-label>Enter Password</mat-label>
         <input matInput formControlName="password" type="password" required>
-        <mat-error *ngIf="RegistrationForm.get('password').invalid">Password field cannot be blank</mat-error>
+        <mat-error *ngIf="RegistrationForm.get('password').errors?.required">Password field cannot be blank</mat-error>
+        <mat-error *ngIf="RegistrationForm.get('password').errors?.minLength">At least 6 characters are required</mat-error>
       </mat-form-field> <br> 
     </div>    
     <button mat-raised-button color="primary" [disabled]="RegistrationForm.invalid" mat-dialog-close (click)="registerUser(RegistrationForm.value)">Add User</button>

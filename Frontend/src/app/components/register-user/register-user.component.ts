@@ -21,8 +21,8 @@ export class RegisterUserComponent implements OnInit {
     RegistrationForm = this.formBuilder.group({
       id: ['', [Validators.required]],
       userName: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
 
     
@@ -39,7 +39,7 @@ export class RegisterUserComponent implements OnInit {
     this.userService.register(formData).then(
       (res) => {
         location.reload();
-      }
+      },
     )
   }
 }

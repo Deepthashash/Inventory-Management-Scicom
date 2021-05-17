@@ -28,6 +28,9 @@ export class UsersComponent implements OnInit {
         this.users = res;
         console.log(this.users);
         this.dataSource = this.users;
+      },
+      (err) => {
+        this.isLoading = false;
       }
     )
   }
